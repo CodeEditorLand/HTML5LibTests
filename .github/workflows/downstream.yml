@@ -23,12 +23,12 @@ jobs:
   parse5:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4.2.2
         with:
           repository: inikulin/parse5
           submodules: recursive
       - run: rm -rf test/data/html5lib-tests/
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4.2.2
         with:
           path: test/data/html5lib-tests/
       - uses: actions/setup-node@v4.2.0
@@ -42,14 +42,14 @@ jobs:
   html5gum:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4.2.2
         with:
           repository: untitaker/html5gum
       - run: rm -rf tests/html5lib-tests/
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4.2.2
         with:
           path: tests/html5lib-tests/
-      - uses: actions-rs/toolchain@v1
+      - uses: actions-rs/toolchain@v1.0.7
         with:
           profile: minimal
           toolchain: stable
@@ -61,11 +61,11 @@ jobs:
     container:
       image: ghcr.io/sparklemotion/nokogiri-test:mri-3.2
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4.2.2
         with:
           repository: sparklemotion/nokogiri
           path: nokogiri
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4.2.2
         with:
           path: nokogiri/test/html5lib-tests
       - working-directory: nokogiri
